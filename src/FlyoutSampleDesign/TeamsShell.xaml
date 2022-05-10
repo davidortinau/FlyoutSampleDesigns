@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FlyoutSampleDesign.TeamsShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FlyoutSampleDesign"
+    xmlns:icons="clr-namespace:Icons"
+    Shell.FlyoutBehavior="Locked"
+    Shell.FlyoutWidth="50"
+    FlyoutBackground="{StaticResource LightGrayBrush}"
+    >
+
+    <Shell.Resources>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Calendar}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconCalendar"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Chat}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconChat"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.People}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconPeople"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Phone}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconPhone"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.FileImage}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconFiles"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.ActivityFeed}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconActivity"/>
+
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.AllApps}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconApps"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Help}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconHelp"/>
+    </Shell.Resources>
+
+    <ShellContent
+        Title="Calendar"
+        FlyoutIcon="{StaticResource IconCalendar}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="calendar" />
+
+    <ShellContent
+        Title="Chat"
+        FlyoutIcon="{StaticResource IconChat}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="chat" />
+
+    <ShellContent
+        Title="Teams"
+        FlyoutIcon="{StaticResource IconPeople}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="team" />
+
+    <ShellContent
+        Title="Calls"
+        FlyoutIcon="{StaticResource IconPhone}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="calls" />
+
+    <ShellContent
+        Title="Files"
+        FlyoutIcon="{StaticResource IconFiles}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="files" />
+
+    <ShellContent
+        Title="Activity"
+        FlyoutIcon="{StaticResource IconActivity}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="activity" />
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout Margin="0,8" Padding="0" Spacing="4">
+                <Image Source="{Binding FlyoutIcon}"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="Center"
+                       HorizontalOptions="Center"/>
+                <Label Text="{Binding Title}"
+                       FontSize="9"
+                       TextColor="{StaticResource DarkGray}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <Grid RowDefinitions="Auto,Auto" RowSpacing="12" HorizontalOptions="Start">
+                <VerticalStackLayout Margin="0,8" Padding="0" Spacing="4" Grid.Row="0">
+                    <Image Source="{StaticResource IconApps}"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="Center"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Apps"
+                       FontSize="9"
+                       TextColor="{StaticResource DarkGray}"
+                       HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Margin="0,8" Padding="0" Spacing="4" Grid.Row="1">
+                    <Image Source="{StaticResource IconHelp}"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="Center"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Help"
+                       FontSize="9"
+                       TextColor="{StaticResource DarkGray}"
+                       HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+</Shell>

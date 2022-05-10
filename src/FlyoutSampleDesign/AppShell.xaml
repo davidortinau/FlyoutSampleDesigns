@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FlyoutSampleDesign.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FlyoutSampleDesign"
+    xmlns:icons="clr-namespace:Icons"
+    xmlns:system="clr-namespace:System;assembly=netstandard"
+    FlyoutBackground="{StaticResource LightGrayBrush}"
+    FlyoutHeaderBehavior="Fixed"
+    >
+    
+    <Shell.Resources>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Calendar}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconCalendar"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Chat}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconChat"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.People}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconPeople"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Phone}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconPhone"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.FileImage}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconFiles"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.ActivityFeed}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconActivity"/>
+
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.AllApps}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconApps"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Help}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconHelp"/>
+
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.StatusCircleCheckmark}"
+                         Size="16"
+                         Color="Green"
+                         x:Key="IconAvailable"/>
+
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Edit}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconEdit"/>
+
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.AlertSettings}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconNotifications"/>
+
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Settings}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconSettings"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.Lightbulb}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconWhatsNew"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.AccountManagement}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconOrganization"/>
+        <FontImageSource FontFamily="FabMDL2"
+                         Glyph="{x:Static icons:FabIconFont.CirclePlus}"
+                         Size="16"
+                         Color="{StaticResource DarkGray}"
+                         x:Key="IconAdd"/>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10" HeightRequest="60">
+                <Image Source="https://devblogs.microsoft.com/dotnet/wp-content/uploads/sites/10/2021/04/davidortinau-300x300.png"
+                           WidthRequest="32"
+                           HeightRequest="32"
+                       VerticalOptions="End"
+                       >
+                    <Image.Clip>
+                        <EllipseGeometry RadiusX="16" RadiusY="16" Center="16,16"/>
+                    </Image.Clip>
+                </Image>
+
+                <Label Grid.Column="1" VerticalOptions="End">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="David Ortinau >" FontAttributes="Bold" TextColor="Black" FontSize="11"/>
+                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                            <Span Text="PRINCIPAL PROGRAM MANAGER" TextColor="{StaticResource MidGray}" FontSize="9"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <Shell.FlyoutContentTemplate>
+        <DataTemplate>
+            <VerticalStackLayout>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconAvailable}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label Text="Available"
+                                   FontSize="9"
+                                   TextColor="{StaticResource DarkGray}"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1"/>
+                </Grid>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconEdit}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label Text="Set status message"
+                                   FontSize="9"
+                                   TextColor="{StaticResource DarkGray}"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1"/>
+                </Grid>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconNotifications}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label FontSize="9"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Notifications" FontSize="9" TextColor="{StaticResource DarkGray}"/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="Off" FontSize="9" TextColor="{StaticResource MidGray}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconSettings}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label Text="Settings"
+                                   FontSize="9"
+                                   TextColor="{StaticResource DarkGray}"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1"/>
+                </Grid>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconWhatsNew}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label Text="What's New"
+                                   FontSize="9"
+                                   TextColor="{StaticResource DarkGray}"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1"/>
+                </Grid>
+                <Label Text="Accounts and Orgs"
+                       FontAttributes="Bold"
+                       Margin="10,15,10,10"
+                       />
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconOrganization}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label FontSize="9"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Microsoft" FontSize="9" TextColor="{StaticResource DarkGray}"/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="daortin@microsoft.com" FontSize="9" TextColor="{StaticResource MidGray}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconOrganization}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label FontSize="9"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Microsoft" FontSize="9" TextColor="{StaticResource DarkGray}"/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="daortin@microsoft.com" FontSize="9" TextColor="{StaticResource MidGray}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconOrganization}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label FontSize="9"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Microsoft" FontSize="9" TextColor="{StaticResource DarkGray}"/>
+                                <Span Text="{x:Static system:Environment.NewLine}"/>
+                                <Span Text="daortin@microsoft.com" FontSize="9" TextColor="{StaticResource MidGray}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+                <Grid ColumnDefinitions="30,*" ColumnSpacing="10" Margin="10">
+                    <Image Source="{StaticResource IconAdd}"
+                               HeightRequest="16"
+                               WidthRequest="16"
+                               Aspect="Center"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                                   />
+                    <Label Text="Add account"
+                                   FontSize="9"
+                                   TextColor="{StaticResource DarkGray}"
+                                   VerticalOptions="Center"
+                                   Grid.Column="1"/>
+                </Grid>
+
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.FlyoutContentTemplate>
+    
+    <ShellContent
+        Title="Calendar"
+        FlyoutIcon="{StaticResource IconCalendar}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="calendar" />
+
+    <ShellContent
+        Title="Chat"
+        FlyoutIcon="{StaticResource IconChat}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="chat" />
+
+    <ShellContent
+        Title="Teams"
+        FlyoutIcon="{StaticResource IconPeople}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="team" />
+
+    <ShellContent
+        Title="Calls"
+        FlyoutIcon="{StaticResource IconPhone}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="calls" />
+
+    <ShellContent
+        Title="Files"
+        FlyoutIcon="{StaticResource IconFiles}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="files" />
+
+    <ShellContent
+        Title="Activity"
+        FlyoutIcon="{StaticResource IconActivity}"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="activity" />
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout Margin="0,8" Padding="0" Spacing="4">
+                <Image Source="{Binding FlyoutIcon}"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="Center"
+                       HorizontalOptions="Center"/>
+                <Label Text="{Binding Title}"
+                       FontSize="9"
+                       TextColor="{StaticResource DarkGray}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <!--<Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <Grid RowDefinitions="Auto,Auto" RowSpacing="12" HorizontalOptions="Start">
+                <VerticalStackLayout Margin="0,8" Padding="0" Spacing="4" Grid.Row="0">
+                    <Image Source="{StaticResource IconApps}"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="Center"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Apps"
+                       FontSize="9"
+                       TextColor="{StaticResource DarkGray}"
+                       HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Margin="0,8" Padding="0" Spacing="4" Grid.Row="1">
+                    <Image Source="{StaticResource IconHelp}"
+                       HeightRequest="16"
+                       WidthRequest="16"
+                       Aspect="Center"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Help"
+                       FontSize="9"
+                       TextColor="{StaticResource DarkGray}"
+                       HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>-->
+
+</Shell>
